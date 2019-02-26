@@ -75,17 +75,6 @@ def logout():
 
 
 #
-# PUBLIC ROOT
-# Get latest posts
-# Route: / OR /home
-#
-@app.route('/')
-@app.route('/home')
-def index():
-	return render_template('tmpl/catalog.html', title = "latest post")
-
-
-#
 # PRIVATE ROOT
 # Add a new item in database
 # Route: /catalog/add/
@@ -118,46 +107,6 @@ def add_item():
 		flash('item has been successfully added');
 		return redirect(url_for('get_item', item_name=item.name))
 
-
-#
-# PUBLIC ROOT 
-# Get all categories from database
-# Route: /catalog/categories/
-#
-@app.route(ROUTE_PREFIX + 'categories/')
-def get_categories():
-	categories = models.Categories.get_all()
-	if categories != None:
-		return render_template('tmpl/categories.html', categories=categories)
-
-
-#
-# PUBLIC ROOT
-# Get all items from a given category
-# Route: /catalog/category/category-name/
-#
-@app.route(ROUTE_PREFIX + 'category/<string:catego_title>/') 
-def get_items(catego_title):
-	category = models.Categories.get(catego_title)
-	if category != None:
-		items = models.Items.get_all(category.id)
-		return render_template('tmpl/catalog.html', title=category.title, items=items)
-	else:
-		abort(404)
-
-
-#
-# PUBLIC ROOT
-# Get detail about a specific item
-# Route: /catalog/item-name/
-#
-@app.route(ROUTE_PREFIX + '<string:item_name>')
-def get_item(item_name):
-	item = models.Items.get(item_name)
-	if item != None:
-		return render_template('tmpl/item-detail.html', item=item)
-	else:
-		abort(404)
 
 #
 # PRIVATE ROOT
@@ -221,6 +170,58 @@ def delete_item(item_name):
 
 #
 # PUBLIC ROOT
+# Get latest posts
+# Route: / OR /home
+#
+@app.route('/')
+@app.route('/home')
+def index():
+	return render_template('tmpl/catalog.html', title = "latest post")
+
+
+#
+# PUBLIC ROOT 
+# Get all categories from database
+# Route: /catalog/categories/
+#
+@app.route(ROUTE_PREFIX + 'categories/')
+def get_categories():
+	categories = models.Categories.get_all()
+	if categories != None:
+		return render_template('tmpl/categories.html', categories=categories)
+
+
+#
+# PUBLIC ROOT
+# Get all items from a given category
+# Route: /catalog/category/category-name/
+#
+@app.route(ROUTE_PREFIX + 'category/<string:catego_title>/') 
+def get_items(catego_title):
+	category = models.Categories.get(catego_title)
+	if category != None:
+		items = models.Items.get_all(category.id)
+		return render_template('tmpl/catalog.html', title=category.title, items=items)
+	else:
+		abort(404)
+
+
+#
+# PUBLIC ROOT
+# Get detail about a specific item
+# Route: /catalog/item-name/
+#
+@app.route(ROUTE_PREFIX + '<string:item_name>')
+def get_item(item_name):
+	item = models.Items.get(item_name)
+	if item != None:
+		return render_template('tmpl/item-detail.html', item=item)
+	else:
+		abort(404)
+
+
+#
+# PUBLIC ROOT
 # Categories JSON Endpoint
 # Route: /catalog/item-name/
 #
@@ -231,6 +232,8 @@ def categories_endpoint():
 	json_categories = [i.serialize for i in categories]
 	json_items = [i.serialize for i in items]
 	return jsonify(categories=json_categories, items=json_items)
+
+
 
 @app.errorhandler(404)
 def page_not_found(e):

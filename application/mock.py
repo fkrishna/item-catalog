@@ -2,26 +2,43 @@ catalog = {
 	'city': 
 	[
 		'new york', 
-		'san francisco', 
-		'florida'
+		'houston', 
+		'philadelphia',
+		'chicago',
+		'san diego'
 	], 
 
 	'sports': 
 	[
 		'football', 
 		'soccer', 
-		'tennis'
+		'tennis',
+		'golf',
+		'hockey'
 	],
 	'food': 
 	[
-		'pizza',
-		'hamburger',
-		'salads'
+		'rice pudding',
+		'buffalo wing',
+		'cheesecake',
+		'hamburger'
 	],
 	'animals': 
 	[
 		'cat',
-		'turtle',
-		'dog'
+		'tiger',
+		'dog',
+		'snakes',
+		'horse',
+		'bird',
+		'deer'
+	],
+	'fashion': 
+	[
+		'Dickies'
+		'DKNY'
+		'Dockers'
+		'Fornasetti'
+		'Fossil'
 	]
 }
