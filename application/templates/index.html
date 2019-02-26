@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+
+	<title>Item Catalog</title>
+
+	<style type="text/css">
+		h1 { font-size: 2rem; }
+		
+		.uk-section {
+			text-align: center;
+		}
+
+		.flashes {
+			list-style: none;
+		}
+		.flashes li {
+			border: 1px solid #eee;
+		    width: 50%;
+		    margin: 0 auto;
+		    padding: 15px;
+		    text-transform: capitalize;
+		}
+	</style>
+
+</head>
+<body>
+	<nav class="uk-navbar-container uk-container uk-container-xsmall" style="background-color: #fff; border-bottom:1px solid #eee;" uk-navbar>
+		<div class="uk-navbar-left">
+		    <a class="uk-navbar-item uk-logo" style="padding-bottom:4px;" href="{{ url_for('index') }}">Catalog App</a>
+		    <ul class="uk-navbar-nav">
+	            <li>
+	                <a href="{{ url_for('get_categories') }}">categories</a>
+	            </li>
+       		</ul>
+       		{% if authenticated() %}
+	       		<ul class="uk-navbar-nav">
+		            <li><a href="{{ url_for('add_item') }}">add item</a></li>
+	       		</ul>
+	       	{% endif %}
+		</div>
+
+		
+		<div class="uk-navbar-right">
+			<div class="uk-navbar-item">
+		        <form action="javascript:void(0)">
+		        	{% if not authenticated() %}
+			            <a href="{{ url_for('login') }}" 
+			            class="uk-button uk-button-small uk-button-default" 
+			            title="login" uk-icon="icon: sign-in"></a>
+
+			            <a href="{{ url_for('signup') }}" 
+			            class="uk-button uk-button-small uk-button-default" 
+			            title="signup" uk-icon="icon: plus"></a>
+		            {% else %}
+			            <a href="{{ url_for('logout') }}" 
+			            class="uk-button uk-button-small uk-button-default" 
+			            title="logout" uk-icon="icon: sign-out"></a>
+		            {% endif %}
+		        </form>
+		    </div>
+		</div>
+	</nav>
+
+	<div class="uk-section uk-section-xsmall">
+		<div class="uk-container uk-container-xsmall" >
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+			    	<ul class=flashes>
+			    	{% for message in messages %}
+			      		<li uk-alert class="uk-border-rounded">
+    						<button class="uk-alert-close" type="button" uk-close></button>
+    						<p class="">{{ message }}</p>
+						</lix>
+			    	{% endfor %}
+			    	</ul>
+			  	{% endif %}
+			{% endwith %}
+			<div id="content">{% block content %}{% endblock %}</div>
+		</div>
+	</div>
+
+	<footer class="uk-margin-medium uk-text-center" style="position:absolute;bottom:0;left:0;right:0;">
+		Developed By <a href="http://krishnafarvil.com" class="uk-link-reset"><u>Krishna Farvil</u></a>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
+</body>
+</html>

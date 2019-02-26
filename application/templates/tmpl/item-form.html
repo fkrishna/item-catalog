@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+
+{% block content %}
+ 	<h3 class="uk-text-capitalize">{{ vars.title }}</h3>
+	
+	{% if vars.item: %}
+    	<form 
+	    class="uk-form-horizontal uk-margin-medium" action="{{ url_for('edit_item', item_name=vars.item.name) }}"
+	    method="POST">
+	{% else: %}
+	    <form 
+	    class="uk-form-horizontal uk-margin-medium" action="{{ url_for('add_item') }}" 
+	    method="POST">
+	{% endif %}
+	    <div class="uk-margin">
+	        <label class="uk-form-label uk-text-capitalize" for="form-horizontal-text">item name:</label>
+	        <div class="uk-form-controls">
+	            <input 
+	            class="uk-input uk-text-capitalize" 
+	            id="form-horizontal-text" 
+	            type="text" 
+	            name="item-name"
+	            placeholder="item name" 
+	            value="{{ vars.item.name if vars.item }}">
+	        </div>
+	    </div>
+
+	    <div class="uk-margin">
+	        <label class="uk-form-label uk-text-capitalize" for="form-horizontal-select">category:</label>
+	        <div class="uk-form-controls">
+	            <select class="uk-select" id="form-horizontal-select" name="category_id">
+	            	<option>--categories--</option>
+	            	{% for category in vars.categories %} 
+	            		{% if vars.item and vars.item.name %} 
+							{% if vars.item.category_id == category.id  %}
+	                			<option value="{{ category.id }}" selected>{{ category.title }}</option>
+	                		{% else %}
+	                			<option value="{{ category.id }}">{{ category.title }}</option>
+	                		{% endif %}	
+	                	{% else %}
+	                		<option value="{{ category.id }}">{{ category.title }}</option>
+	                	{% endif %}
+	                {% endfor %} 
+	            </select>
+	        </div>
+	    </div>
+
+	    <div class="uk-margin">
+	        <div class="uk-form-label uk-text-capitalize">description:</div>
+	        <div class="uk-form-controls uk-form-controls-text">
+	            <textarea 
+	            class="uk-textarea" 
+	            rows="5" 
+	            name="description"
+	            placeholder="Description...">{{ vars.item.description if vars.item }}</textarea>
+	        </div>
+	    </div>
+	    <button class="uk-button uk-button-default">Submit</button>
+	</form>
+{% endblock %}
