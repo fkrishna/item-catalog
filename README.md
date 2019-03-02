@@ -10,7 +10,8 @@ categories<br>
 	- Sports<br>
 	- City<br>
 	- Fashion<br>  
-stack<br>
+
+## stack
 	- Server: Python<br>
 	- FWK: Flask<br>
 	- RDBMS: PostgreSQL<br>
@@ -21,6 +22,6 @@ stack<br>
 1. Download Git:
 2. Download VirtualBox:
 3. Download Vagrant:
-4. Launch terminal to clone the project:
-> * cd item-catalog 
-> * git clone https://github.com/fkrishna/item-catalog.git
+	4. Clone the project:
+> cd item-catalog 
+
