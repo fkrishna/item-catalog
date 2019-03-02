@@ -26,7 +26,7 @@ git clone https://github.com/fkrishna/item-catalog.git
 cd item-catalog
 vagrant up
 ```
-6. Log in
+6. Get access to the shell
 ```
 vagrant ssh 
 ```
