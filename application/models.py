@@ -8,9 +8,8 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
+# Categories Model
 class Categories():
-
-	"""docstring for ClassName"""
 
 	results = None
 
@@ -35,11 +34,20 @@ class Categories():
 		return Categories.results
 
 
+# Items Model
 class Items():
 
-	"""docstring for ClassName"""
-
 	results = None
+
+	@staticmethod
+	def get_latest():
+		Items.results = None
+		try:
+			Items.results = session.query(Item).order_by(Item.id.desc()).limit(4).all()
+		except SQLAlchemyError:
+			pass
+
+		return Items.results
 
 	@staticmethod
 	def get_all(category_id = None):

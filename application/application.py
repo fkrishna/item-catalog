@@ -266,8 +266,8 @@ def index():
 	session['state'] = state
 
 	profile = session.get('picture')
-
-	return render_template('tmpl/catalog.html', title="latest post", state=state, profile=profile)
+	items = models.Items.get_latest()
+	return render_template('tmpl/catalog.html', title="latest post", state=state, profile=profile, items=items)
 
 
 #
