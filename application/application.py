@@ -5,12 +5,10 @@ from datetime import date
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from alchemysetup import Base, Category, Item
-
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 import httplib2
 import json
-from flask import make_response
 import requests
 
 app = Flask(__name__)
@@ -282,14 +280,10 @@ def delete_item(item_name):
 @app.route('/')
 @app.route('/home')
 def index():
+	# Anti Forgery State Token 
 	state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in xrange(32))
-    
 	session['state'] = state
-
-	access = session.get('access_token')
-
-
 	return render_template('tmpl/catalog.html', title="latest post", state=state)
 
 
@@ -336,16 +330,38 @@ def get_item(item_name):
 
 #
 # PUBLIC ROOT
-# Categories JSON Endpoint
-# Route: /catalog/item-name/
+# Catalog JSON Endpoint
+# Route: /catalog/JSON
 #
 @app.route(ROUTE_PREFIX + 'JSON')
-def categories_endpoint():
+def catalog_endpoint():
 	categories = models.Categories.get_all()
 	items = models.Items.get_all()
 	json_categories = [i.serialize for i in categories]
 	json_items = [i.serialize for i in items]
 	return jsonify(categories=json_categories, items=json_items)
+
+#
+# PUBLIC ROOT
+# Categories JSON Endpoint
+# Route: /catalog/categories/JSON
+#
+@app.route(ROUTE_PREFIX + 'categories/JSON')
+def categories_endpoint():
+	categories = models.Categories.get_all()
+	json_categories = [i.serialize for i in categories]
+	return jsonify(categories=json_categories)
+
+#
+# PUBLIC ROOT
+# Items JSON Endpoint
+# Route: /catalog/categories/JSON
+#
+@app.route(ROUTE_PREFIX + 'items/JSON')
+def items_endpoint():
+	items = models.Items.get_all()
+	json_items = [i.serialize for i in items]
+	return jsonify(items=json_items)
 
 
 
