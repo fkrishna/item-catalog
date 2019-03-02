@@ -17,9 +17,17 @@ Categories: Food, Animals, Sports, City, Fashion
 1. Download Git:
 2. Download VirtualBox:
 3. Download Vagrant:
-4. Clone the project:
+4. Launch terminal to clone the project
 ```
-	cd item-catalog 
-	git clone https://github.com/fkrishna/item-catalog.git
+git clone https://github.com/fkrishna/item-catalog.git
+```
+5. Boot the vagrant environment
+```
+cd item-catalog
+vagrant up
+```
+6. Log in
+```
+vagrant ssh 
 ```
 
