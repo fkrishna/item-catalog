@@ -21,7 +21,7 @@ Categories: Food, Animals, Sports, City, Fashion
 ```
 git clone https://github.com/fkrishna/item-catalog.git
 ```
-5. Boot the vagrant environment
+5. Bring up the vagrant environment
 ```
 cd item-catalog
 vagrant up
