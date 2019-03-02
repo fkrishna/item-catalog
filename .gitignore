@@ -1,4 +1,3 @@
 /.vagrant
 *.pyc
-application/*.json
 application/client_secrets.json
