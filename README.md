@@ -1,23 +1,14 @@
 # Item Catalog
 Udacity Project for the Full Stack Web Developer Nanodegree Program
-
 # About
-A data driven app that presents a list of items in 5 different categories.<br>
-To Perform any CRUD operation user must authenticate<br>
-categories<br>
-	- Food<br>
-	- Animals<br>
-	- Sports<br>
-	- City<br>
-	- Fashion<br>  
-
+A data driven app that presents a list of items in 5 different categories. To Perform any CRUD operation user must authenticate<br>
+categories: Food, Animals, Sports, City, Fashion 
 ## stack
 	- Server: Python<br>
 	- FWK: Flask<br>
 	- RDBMS: PostgreSQL<br>
 	- ORM: SQLAlchemy<br>
 	- Oauth Provider: Google<br>
-
 # Installation
 1. Download Git:
 2. Download VirtualBox:
