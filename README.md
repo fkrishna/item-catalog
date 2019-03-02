@@ -3,7 +3,7 @@ Udacity Project for the Full Stack Web Developer Nanodegree Program
 # About
 A data driven app that presents a list of items in 5 different categories. To Perform any CRUD operation user must authenticate<br>
 categories: Food, Animals, Sports, City, Fashion 
-## stack
+# stack
 	- Server: Python<br>
 	- FWK: Flask<br>
 	- RDBMS: PostgreSQL<br>
