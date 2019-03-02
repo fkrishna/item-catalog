@@ -16,5 +16,5 @@ Categories: Food, Animals, Sports, City, Fashion
 2. Download VirtualBox:
 3. Download Vagrant:
 4. Clone the project:
-	- cd item-catalog 
-	- git clone https://github.com/fkrishna/item-catalog.git
+- cd item-catalog 
+- git clone https://github.com/fkrishna/item-catalog.git
