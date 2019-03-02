@@ -16,5 +16,6 @@ Categories: Food, Animals, Sports, City, Fashion
 2 Download VirtualBox:
 3 Download Vagrant:
 4 Clone the project:<br>
-- cd item-catalog 
+
+	- cd item-catalog 
 
