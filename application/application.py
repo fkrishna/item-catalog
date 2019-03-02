@@ -120,7 +120,6 @@ def login():
 
     data = answer.json()
 
-    session['username'] = data['name']
     session['picture'] = data['picture']
     session['email'] = data['email']
 
@@ -130,23 +129,6 @@ def login():
     response = make_response(json.dumps("logged successfully"), 200)
     response.headers['Content-Type'] = 'application/json'
     return response
-
-
-
-#
-# PUBLIC ROOT
-# Sign up a new user through a third party provider 
-# using OAuth Protocol 
-# Route: /logout
-#
-@app.route('/signup')
-def signup():
-	if authenticated():
-		return redirect(url_for('index'))	
-
-	session.pop('logged', None)
-	time.sleep(1)
-	return redirect(url_for('index'))
 
 
 #
@@ -166,8 +148,6 @@ def logout():
 	
 	if result['status'] == '200':
 		del session['access_token']
-		del session['gplus_id']
-		del session['username']
 		del session['email']
 		del session['picture']
 		flash('Successfully disconnected.')
@@ -284,7 +264,10 @@ def index():
 	state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in xrange(32))
 	session['state'] = state
-	return render_template('tmpl/catalog.html', title="latest post", state=state)
+
+	profile = session.get('picture')
+
+	return render_template('tmpl/catalog.html', title="latest post", state=state, profile=profile)
 
 
 #

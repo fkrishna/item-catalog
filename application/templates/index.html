@@ -43,10 +43,14 @@
 
 		
 		<div class="uk-navbar-right">
+			 {% if authenticated() %}
+			    <div class="uk-navbar-item">
+			    	<img data-src="{{profile}}" class="uk-border-circle" width="40" alt="profile" uk-img>
+			    </div>
+		    {% endif %}
 			<div class="uk-navbar-item">
 		        <form action="javascript:void(0)">
 		        	{% if not authenticated() %}
-
 				      	<span class="g-signin"data-scope="openid email"
 				        data-clientid="1003724907482-pr66nrh82674mevi5ucnugr4c1678di4.apps.googleusercontent.com"
 				        data-redirecturi="postmessage"
