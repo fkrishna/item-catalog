@@ -14,10 +14,12 @@ Categories: Food, Animals, Sports, City, Fashion
 - Oauth Provider: Google
 
 # Installation
-1. Download Git:<br>
-2. Download VirtualBox:<br>
-3. Download Vagrant:<br>
-4. Clone the project:<br>
-
+1. Download Git:
+2. Download VirtualBox:
+3. Download Vagrant:
+4. Clone the project:
+```
 	cd item-catalog 
+	git clone https://github.com/fkrishna/item-catalog.git
+```
 
