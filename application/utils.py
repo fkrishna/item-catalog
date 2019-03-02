@@ -5,10 +5,8 @@ def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
 
 
 def authenticated():
-	if 'logged' in session:
-		return True
+	return True if session.get('access_token') else False
 	
-	return False
 
 
 def valid_form():

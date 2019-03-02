@@ -35,10 +35,10 @@ catalog = {
 	],
 	'fashion': 
 	[
-		'Dickies'
-		'DKNY'
-		'Dockers'
-		'Fornasetti'
-		'Fossil'
+		'Dickies',
+		'DKNY',
+		'Dockers',
+		'Fornasetti',
+		'Fossil',
 	]
 }
