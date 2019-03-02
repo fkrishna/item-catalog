@@ -12,9 +12,9 @@ Categories: Food, Animals, Sports, City, Fashion
 	- ORM: SQLAlchemy<br>
 	- Oauth Provider: Google<br>
 # Installation
-Download Git:
-Download VirtualBox:
-Download Vagrant:
-Clone the project:<br>
-- cd item-catalog 
+- Download Git:
+- Download VirtualBox:
+- Download Vagrant:
+- Clone the project:<br>
+cd item-catalog 
 
