@@ -89,6 +89,7 @@
 
 	<footer class="uk-margin uk-text-center">
 		Developed By <a href="http://krishnafarvil.com" class="uk-link-reset"><u>Krishna Farvil</u></a>
+		<br>
 	</footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
@@ -105,7 +106,7 @@
     			// Send the one-time-use code to the server, if the server responds, redirect back to the home page
     			$.ajax({
       				type: 'POST',
-      				url: '/gconnect?state={{state}}',
+      				url: '/gconnect?state={{ get_stateToken() }}',
       				processData: false,
       				data: authResult['code'],
       				contentType: 'application/octet-stream; charset=utf-8',

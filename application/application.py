@@ -18,7 +18,11 @@ ROUTE_PREFIX = '/catalog/'
 
 @app.context_processor
 def utility_processor():
-	return dict(authenticated = authenticated)
+	return dict(authenticated=authenticated)
+
+@app.context_processor
+def utility_processor():
+	return dict(get_stateToken=get_state_token)
 
 @app.template_filter()
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
@@ -267,7 +271,7 @@ def index():
 
 	profile = session.get('picture')
 	items = models.Items.get_latest()
-	return render_template('tmpl/catalog.html', title="latest post", state=state, profile=profile, items=items)
+	return render_template('tmpl/catalog.html', title="latest post", profile=profile, items=items)
 
 
 #

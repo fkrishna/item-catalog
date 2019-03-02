@@ -8,7 +8,6 @@ def authenticated():
 	return True if session.get('access_token') else False
 	
 
-
 def valid_form():
 	valid = True;
 
@@ -22,4 +21,6 @@ def valid_form():
 	
 	return valid
 
+def get_state_token():
+	return session['state']
 
