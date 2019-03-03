@@ -38,9 +38,7 @@ Vagrant.configure("2") do |config|
     su postgres -c 'createuser -dRS vagrant'
     su vagrant -c 'createdb catalog'
     su vagrant -c 'psql catalog -f /vagrant/db/schema.sql'
-
-    config.vm.provision :shell, :inline => "python ./application/seed.py"
-    
+  
     vagrantTip="[35m[1mThe shared directory is located at /vagrant\\nTo access your shared files: cd /vagrant[m"
     echo -e $vagrantTip > /etc/motd
 
