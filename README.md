@@ -23,8 +23,10 @@ git clone https://github.com/fkrishna/item-catalog.git
 ```
 cd item-catalog
 ```
-5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file. visit this <a href="http://example.com/" target="_blank">link</a> for more information.
-6. Put the client secrets json file at the root and run the following commands to boot the vagrant machine
+5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file. and put it at the root of the directory visit this <a href="http://example.com/" target="_blank">link</a> for more information on how to register the app.
+
+# How to use
+1. Bring up the vagrant environment
 ```
 vagrant up
 ```
