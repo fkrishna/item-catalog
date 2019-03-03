@@ -23,22 +23,26 @@ git clone https://github.com/fkrishna/item-catalog.git
 ```
 cd item-catalog
 ```
-5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file. and put it at the root of the directory visit this <a href="http://example.com/" target="_blank">link</a> for more information on how to register the app.
+5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file. and put it at the root of the directory.<br>
+checkout this <a href="http://example.com/" target="_blank">link</a> for more information on how to register the app.
 
 # How to use
 1. Bring up the vagrant environment
 ```
 vagrant up
 ```
-7. Get access to the shell
+2. Get access to the shell
 ```
 vagrant ssh 
 ```
 ```
 cd /vagrant/application 
 ```
-8. Execute the app.py file
+3. Execute the app.py file
 ```
 python app.py
 ```
-
+# Json Enpoints
+* /catalog
+* /catalog/categories
+* /catalog/items
