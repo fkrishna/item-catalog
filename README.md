@@ -20,14 +20,23 @@ Categories: Food, Animals, Sports, City, Fashion
 ```
 git clone https://github.com/fkrishna/item-catalog.git
 ```
-5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file. visit this <a href="http://example.com/" target="_blank">link</a>for more information.
+```
+cd item-catalog
+```
+5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file. visit this<a href="http://example.com/" target="_blank"> link</a>for more information.
 6. Put the client secrets json file at the root and run the following commands to boot the vagrant machine
 ```
-1. cd item-catalog
-2. vagrant up
+vagrant up
 ```
 7. Get access to the shell
 ```
 vagrant ssh 
+```
+```
+cd /vagrant/application 
+```
+8. Execute the app.py file
+```
+python app.py
 ```
 
