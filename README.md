@@ -53,7 +53,7 @@ python app.py
 http://localhost:5000/
 ```
 
-If you are getting a Missing require parameter: redirect_uri error this <a href="https://github.com/googleapis/oauth2client/issues/16#issuecomment-312719251" target="_blank">link</a will help you solve this problem with you client secrets json file
+If you are getting a Missing require parameter: redirect_uri error this <a href="https://github.com/googleapis/oauth2client/issues/16#issuecomment-312719251" target="_blank">link</a> will help you solve this problem with you client secrets json file
 
 # Json Endpoints
 * /catalog
