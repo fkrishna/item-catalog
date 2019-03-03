@@ -38,7 +38,11 @@ vagrant ssh
 ```
 cd /vagrant/application 
 ```
-3. Execute the app.py file
+3. Populate the database
+```
+python seed.py
+```
+4. Execute the app.py file
 ```
 python app.py
 ```
