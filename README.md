@@ -2,8 +2,7 @@
 Udacity Project for the Full Stack Web Developer Nanodegree Program
 
 # About
-A data driven app that presents a list of items in 5 different categories.<br>
-To Perform any CRUD operation on those items user must authenticate<br>
+A data driven app that presents a list of items in 5 different categories, to Perform any CRUD operation on those items user must authenticate with a gmail account<br>
 Categories: Food, Animals, Sports, City, Fashion
 
 # Stack
@@ -21,12 +20,14 @@ Categories: Food, Animals, Sports, City, Fashion
 ```
 git clone https://github.com/fkrishna/item-catalog.git
 ```
-5. Bring up the vagrant environment
+5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file. visit this [link](https://www.google.com) for more information.
+
+6. Bring up the vagrant environment
 ```
 cd item-catalog
 vagrant up
 ```
-6. Get access to the shell
+7. Get access to the shell
 ```
 vagrant ssh 
 ```
