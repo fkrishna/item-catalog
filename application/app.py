@@ -28,11 +28,8 @@ def utility_processor():
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
 	return value.strftime(format)
 
-
-
 CLIENT_ID = json.loads(open('../client_secrets.json', 'r').read())['web']['client_id']
 APP_NAME = "Item Catalog"
-
 
 
 ##############
