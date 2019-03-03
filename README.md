@@ -35,6 +35,7 @@ vagrant up
 ```
 vagrant ssh 
 ```
+Then
 ```
 cd /vagrant/application 
 ```
