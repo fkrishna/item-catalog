@@ -30,7 +30,7 @@ def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
 
 
 
-CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
+CLIENT_ID = json.loads(open('../client_secrets.json', 'r').read())['web']['client_id']
 APP_NAME = "Item Catalog"
 
 
@@ -58,7 +58,7 @@ def login():
 
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('../client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
