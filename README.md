@@ -13,9 +13,9 @@ Categories: Food, Animals, Sports, City, Fashion
 - Oauth Provider: Google
 
 # Installation
-1. Download Git:
-2. Download VirtualBox:
-3. Download Vagrant:
+1. Download<a href="https://git-scm.com/downloads" target="_blank"> Git</a>
+2. Download<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank"> VirtualBox</a>
+3. Download<a href="https://www.vagrantup.com/downloads.html" target="_blank"> Vagrant</a>
 4. Launch terminal to clone the project
 ```
 git clone https://github.com/fkrishna/item-catalog.git
