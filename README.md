@@ -24,7 +24,8 @@ git clone https://github.com/fkrishna/item-catalog.git
 cd item-catalog
 ```
 5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file and place it at the root of the directory.<br>
-checkout this <a href="https://developers.google.com/adwords/api/docs/guides/authentication#webapp" target="_blank">link</a> for more information on how to register the app.
+
+Checkout this <a href="https://developers.google.com/adwords/api/docs/guides/authentication#webapp" target="_blank">link</a> for more information on how to register the app.
 
 # How to use
 1. Bring up the vagrant environment
@@ -51,6 +52,9 @@ python app.py
 ```
 http://localhost:5000/
 ```
+
+If you are getting a Missing require parameter: redirect_uri error this <a href="https://github.com/googleapis/oauth2client/issues/16#issuecomment-312719251" target="_blank">link</a will help you solve this problem with you client secrets json file
+
 # Json Endpoints
 * /catalog
 * /catalog/categories
