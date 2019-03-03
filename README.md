@@ -42,7 +42,7 @@ cd /vagrant/application
 ```
 python app.py
 ```
-# Json Enpoints
+# Json Endpoints
 * /catalog
 * /catalog/categories
 * /catalog/items
