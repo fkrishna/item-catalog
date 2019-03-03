@@ -47,6 +47,10 @@ python seed.py
 ```
 python app.py
 ```
+5. Open your browser 
+```
+http://localhost:5000/
+```
 # Json Endpoints
 * /catalog
 * /catalog/categories
