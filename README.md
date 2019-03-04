@@ -13,17 +13,15 @@ Categories: Food, Animals, Sports, City, Fashion
 - Oauth Provider: Google
 
 # Installation
-1. Download <a href="https://git-scm.com/downloads" target="_blank">Git</a>
-2. Download <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a>
-3. Download <a href="https://www.vagrantup.com/downloads.html" target="_blank">Vagrant</a>
-4. Launch terminal and run the following commands
+1. Download <a href="https://git-scm.com/downloads" target="_blank">Git</a>, <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a> and <a href="https://www.vagrantup.com/downloads.html" target="_blank">Vagrant</a>
+2. Launch terminal and run the following commands
 ```
 git clone https://github.com/fkrishna/item-catalog.git
 ```
 ```
 cd item-catalog
 ```
-5. You will need to register the app as a web-based application through the google dev console and download the client secrets json file and place it at the root of the directory.<br>
+3. You will need to register the app as a web-based application through the google dev console and download the client secrets json file and place it at the root of the directory.<br>
 
 Checkout this <a href="https://developers.google.com/adwords/api/docs/guides/authentication#webapp" target="_blank">link</a> for more information on how to register the app.
 
