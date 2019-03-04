@@ -26,15 +26,12 @@ cd item-catalog
 Checkout this <a href="https://developers.google.com/adwords/api/docs/guides/authentication#webapp" target="_blank">link</a> for more information on how to register the app.
 
 # How to use
-1. Bring up the vagrant environment
+1. Bring up the vagrant environment then login via ssh
 ```
-vagrant up
-```
-2. Get access to the shell
-```
-vagrant ssh 
-```
-Then
+1. vagrant up
+2. vagrant ssh 
+``` 
+Then go to the application directory
 ```
 cd /vagrant/application 
 ```
