@@ -10,3 +10,9 @@ CREATE TABLE items (
  	post_date timestamp NOT NULL,
  	category_id integer NOT NULL REFERENCES categories(id)
 );
+
+CREATE TABLE users (
+	id serial PRIMARY KEY NOT NULL,
+ 	username varchar(255) NOT NULL,
+ 	email text
+);
