@@ -51,14 +51,18 @@
 			<div class="uk-navbar-item">
 		        <form action="javascript:void(0)">
 		        	{% if not authenticated() %}
-				      	<span class="g-signin"data-scope="openid email"
+		        	<div>
+				      	<span class="g-signin uk-button uk-button-default" 
+				      	data-scope="openid email" 
 				        data-clientid="1003724907482-pr66nrh82674mevi5ucnugr4c1678di4.apps.googleusercontent.com"
 				        data-redirecturi="postmessage"
 				        data-accesstype="offline"
 				        data-cookiepolicy="single_host_origin"
 				        data-callback="signInCallback"
 				        data-approvalprompt="force">
+				        LOGIN
 				      	</span>
+				    </div>
 		            {% else %}
 			            <a href="{{ url_for('logout') }}" 
 			            class="uk-button uk-button-small uk-button-default" 
@@ -96,6 +100,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+<!-- 	<script src="https://apis.google.com/js/client.js?onload=start"></script> -->
+
 	<script type="text/javascript">
 		
 		function signInCallback(authResult) {
@@ -115,7 +121,7 @@
 				        	alert('redirecting...');
 				         	setTimeout(function() {
 				          		window.location.href = "/";
-				        	}, 1000);
+				        	}, 500);
 				        	console.log(result);
 				    	} 
 				    	else if (authResult['error']) {

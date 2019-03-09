@@ -4,7 +4,7 @@ import models, time, random, string
 from datetime import date
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from alchemysetup import Base, Category, Item
+from alchemysetup import Base, Category, Item, User
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 import httplib2
@@ -121,8 +121,16 @@ def login():
 
     data = answer.json()
 
+    session['name'] = data['name'] if 'name' in data else 'Anonymous User'
     session['picture'] = data['picture']
     session['email'] = data['email']
+
+    if not models.Users.occur(session.get('email')):
+    	user = User(
+			username = session.get('name'),
+			email = session.get('email')
+		)
+    	models.Users.add(user);
 
     notif = 'You were successfully logged in'
     flash(notif)	
@@ -185,7 +193,8 @@ def add_item():
 			name = request.form['item-name'], 
 			description = request.form['description'],
 			category_id = request.form['category_id'],
-			post_date = date.today()
+			post_date = date.today(),
+			user_id = models.Users.get_by_email(session.get('email')).id
 		)
 
 		models.Items.add(item)
@@ -204,9 +213,14 @@ def edit_item(item_name):
 		return redirect(url_for('index'))
 
 	item = models.Items.get(item_name)
+	author = models.Users.get(item.user_id)
 
 	if item == None:
 		abort(404)
+
+	if not authorized(author.email):
+		flash("You are not authorized to edit or delete this item")
+		return redirect(url_for('get_item', item_name=item_name))
 
 	if request.method == 'GET':
 		vars = {
@@ -240,9 +254,15 @@ def delete_item(item_name):
 		return redirect(url_for('index'))
 
 	item = models.Items.get(item_name)
+	author = models.Users.get(item.user_id)
 	
 	if item == None:
 		abort(404)
+
+	if not authorized(author.email):
+		flash("You are not authorized to edit or delete this item")
+		return redirect(url_for('get_item', item_name=item_name))
+
 
 	if request.method == 'GET':
 		return render_template('tmpl/item-del.html', item=item)
@@ -305,9 +325,10 @@ def get_items(catego_title):
 #
 @app.route(ROUTE_PREFIX + '<string:item_name>')
 def get_item(item_name):
-	item = models.Items.get(item_name)
+	item = models.Items.get(name=item_name)
+	author = models.Users.get(user_id=item.user_id)
 	if item != None:
-		return render_template('tmpl/item-detail.html', item=item)
+		return render_template('tmpl/item-detail.html', item=item, author=author)
 	else:
 		abort(404)
 

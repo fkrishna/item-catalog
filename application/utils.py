@@ -8,6 +8,9 @@ def authenticated():
 	return True if session.get('access_token') else False
 	
 
+def authorized(user_email):
+	return True if session.get('email') == user_email else False
+
 def valid_form():
 	valid = True;
 

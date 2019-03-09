@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from alchemysetup import Base, Category, Item
+from alchemysetup import Base, Category, Item, User
 from datetime import date
 from mock import catalog
 import lipsum
@@ -10,7 +10,7 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-# populate categories and items tables
+# populate categories, users and items tables
 def execute():
 	
 	items = []
@@ -20,6 +20,10 @@ def execute():
 		session.add( Category(title = category) )
 		session.commit()
 
+	print('populating the users table...')
+	user = session.add( User(username="fkrishna", email="krishnafarvil@gmail.com") )
+	session.commit()
+
 	print('populating the items table...')
 	for i, category in enumerate(catalog.keys()):
 		for c_item in catalog[category]:
@@ -28,11 +32,14 @@ def execute():
 					name = c_item,
 					description = lipsum.generate_paragraphs(), 
 					post_date = date.today(),
-					category_id = session.query(Category).filter(Category.title == category).first().id
+					category_id = session.query(Category).filter(Category.title == category).first().id,
+					user_id = session.query(User).filter(User.username == 'fkrishna').first().id
 				)
 			)
+
 	session.add_all(items)
 	session.commit()
+
 	print('Done...')
 
 
