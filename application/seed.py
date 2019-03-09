@@ -11,40 +11,42 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # populate categories, users and items tables
+
+
 def execute():
-	
-	items = []
 
-	print('populating the categories table...')
-	for category in catalog.keys():
-		session.add( Category(title = category) )
-		session.commit()
+    items = []
 
-	print('populating the users table...')
-	user = session.add( User(username="fkrishna", email="krishnafarvil@gmail.com") )
-	session.commit()
+    print('populating the categories table...')
+    for category in catalog.keys():
+        session.add(Category(title=category))
+        session.commit()
 
-	print('populating the items table...')
-	for i, category in enumerate(catalog.keys()):
-		for c_item in catalog[category]:
-			items.append( 
-				Item(
-					name = c_item,
-					description = lipsum.generate_paragraphs(), 
-					post_date = date.today(),
-					category_id = session.query(Category).filter(Category.title == category).first().id,
-					user_id = session.query(User).filter(User.username == 'fkrishna').first().id
-				)
-			)
+    print('populating the users table...')
+    user = session.add(
+        User(
+            username="fkrishna",
+            email="krishnafarvil@gmail.com"))
+    session.commit()
 
-	session.add_all(items)
-	session.commit()
+    print('populating the items table...')
+    for i, category in enumerate(catalog.keys()):
+        for c_item in catalog[category]:
+            items.append(
+                Item(
+                    name=c_item,
+                    description=lipsum.generate_paragraphs(),
+                    post_date=date.today(),
+                    category_id=session.query(Category).filter(
+                        Category.title == category).first().id,
+                    user_id=session.query(User).filter(
+                        User.username == 'fkrishna').first().id))
 
-	print('Done...')
+    session.add_all(items)
+    session.commit()
+
+    print('Done...')
 
 
 if __name__ == '__main__':
-	execute()
-	
-
-	
+    execute()
