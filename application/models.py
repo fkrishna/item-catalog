@@ -121,6 +121,16 @@ class Items():
 		return Items.results
 
 	@staticmethod
+	def get_by_id(id):
+		Items.results = None
+		try:
+			Items.results = session.query(Item).filter(Item.id == id).one()
+		except SQLAlchemyError as e:
+			print(e)
+
+		return Items.results
+
+	@staticmethod
 	def add(item):
 		Items.results = None
 		try:

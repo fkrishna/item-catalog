@@ -341,35 +341,69 @@ def get_item(item_name):
 # Catalog JSON Endpoint
 # Route: /catalog/JSON
 #
-@app.route(ROUTE_PREFIX + 'JSON')
+@app.route(ROUTE_PREFIX + 'JSON/')
 def catalog_endpoint():
 	categories = models.Categories.get_all()
 	items = models.Items.get_all()
 	json_categories = [i.serialize for i in categories]
 	json_items = [i.serialize for i in items]
-	return jsonify(categories=json_categories, items=json_items)
+	return jsonify(categories=json_categories, items=json_items), 200
 
 #
 # PUBLIC ROOT
 # Categories JSON Endpoint
 # Route: /catalog/categories/JSON
 #
-@app.route(ROUTE_PREFIX + 'categories/JSON')
+@app.route(ROUTE_PREFIX + 'categories/JSON/')
 def categories_endpoint():
 	categories = models.Categories.get_all()
 	json_categories = [i.serialize for i in categories]
-	return jsonify(categories=json_categories)
+	return jsonify(categories=json_categories), 200
+
+
+#
+# PUBLIC ROOT
+# JSON Endpoint
+# List of items within a specific category
+# Route: /catalog/category/catego_name/items/JSON
+#
+@app.route(ROUTE_PREFIX + 'category/<string:catego_name>/JSON/')
+def items_in_category_endpoint(catego_name):
+	category = models.Categories.get(catego_name)
+	
+	if category == None:
+		return jsonify(message="resource not found"), 404
+
+	items = models.Items.get_all(category.id)
+	json_items = [i.serialize for i in items]
+	return jsonify(items=json_items), 200
+
+
+#
+# PUBLIC ROOT
+# Specific item JSON Endpoint 
+# Route: /catalog/item/item_id/JSON
+#
+@app.route(ROUTE_PREFIX + 'item/<int:item_id>/JSON/')
+def item_in_category_endpoint(item_id):
+	item = models.Items.get_by_id(item_id)
+	if item == None:
+		return jsonify(message="resource not found"), 404
+
+	return jsonify(item=item.serialize), 200
+
+
 
 #
 # PUBLIC ROOT
 # Items JSON Endpoint
 # Route: /catalog/categories/JSON
 #
-@app.route(ROUTE_PREFIX + 'items/JSON')
+@app.route(ROUTE_PREFIX + 'items/JSON/')
 def items_endpoint():
 	items = models.Items.get_all()
 	json_items = [i.serialize for i in items]
-	return jsonify(items=json_items)
+	return jsonify(items=json_items), 200
 
 
 
