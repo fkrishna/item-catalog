@@ -50,13 +50,14 @@ http://localhost:5000/
 
 If you are getting this error "Missing require parameter: redirect_uri" this <a href="https://github.com/googleapis/oauth2client/issues/16#issuecomment-312719251" target="_blank">link</a> will help you solve this problem with you client secrets json file
 
-# [Json Endpoints]
+# Json Endpoints
 
 |  			  Endpoint  			| 	 	      Action 			|
 | --------------------------------- | ----------------------------- |
-| /catalog  						| List all Categories & Items   |
-| /catalog/categories  				| Content Cell  			    |
-| /catalog/category/$category-name  | content ceel 					|
+| /catalog  						| List all categories & items   |
+| /catalog/categories  				| List all categories 			|
+| /catalog/category/$category-name  | List all item within a 		|
+				 					| specific caterory				|
 | /catalog/items 					| content Cell 					|
 | /catalog/item/$item-id			| content celle 				|
 
