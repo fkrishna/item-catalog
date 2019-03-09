@@ -57,7 +57,7 @@ If you are getting this error "Missing require parameter: redirect_uri" this <a 
 | /catalog  						| List all categories & items   |
 | /catalog/categories  				| List all categories 			|
 | /catalog/category/$category-name  | List all item within a 		|
-				 					| specific caterory				|
+|				 					| specific caterory				|
 | /catalog/items 					| content Cell 					|
 | /catalog/item/$item-id			| content celle 				|
 
