@@ -45,7 +45,7 @@
 		<div class="uk-navbar-right">
 			 {% if authenticated() %}
 			    <div class="uk-navbar-item">
-			    	<img data-src="{{profile}}" class="uk-border-circle" width="40" alt="profile" uk-img>
+			    	<img data-src="{{ get_auth_picture() }}" class="uk-border-circle" width="40" alt="profile" uk-img>
 			    </div>
 		    {% endif %}
 			<div class="uk-navbar-item">
@@ -93,7 +93,6 @@
 
 	<footer class="uk-margin uk-text-center">
 		Developed By <a href="http://krishnafarvil.com" class="uk-link-reset"><u>Krishna Farvil</u></a>
-		<br>
 	</footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>

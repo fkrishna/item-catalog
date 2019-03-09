@@ -22,6 +22,10 @@ def utility_processor():
 
 @app.context_processor
 def utility_processor():
+	return dict(get_auth_picture=get_auth_picture)
+
+@app.context_processor
+def utility_processor():
 	return dict(get_stateToken=get_state_token)
 
 @app.template_filter()
@@ -286,9 +290,8 @@ def index():
                     for x in xrange(32))
 	session['state'] = state
 
-	profile = session.get('picture')
 	items = models.Items.get_latest()
-	return render_template('tmpl/catalog.html', title="latest post", profile=profile, items=items)
+	return render_template('tmpl/catalog.html', title="latest post", items=items)
 
 
 #
