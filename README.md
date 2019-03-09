@@ -52,14 +52,13 @@ If you are getting this error "Missing require parameter: redirect_uri" this <a 
 
 # Json Endpoints
 
-|  			  Endpoint  			| 	 	      Action 			|
-| --------------------------------- | ----------------------------- |
-| /catalog  						| List all categories & items   |
-| /catalog/categories  				| List all categories 			|
-| /catalog/category/$category-name  | List all item within a 		|
-|				 					| specific caterory				|
-| /catalog/items 					| content Cell 					|
-| /catalog/item/$item-id			| content celle 				|
+|  			  Endpoint  			| 	 	        Action 				|
+| --------------------------------- | --------------------------------- |
+| /catalog  						| GET all categories & items   		|
+| /catalog/categories  				| GET all categories 				|
+| /catalog/category/$category-name  | GET all items within a category 	|
+| /catalog/items 					| GET all items						|
+| /catalog/item/$item-id			| GET a specific item 				|
 
 
 
