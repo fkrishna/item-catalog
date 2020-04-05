@@ -6,7 +6,6 @@ A data driven app that presents a list of items in 5 different categories, to Pe
 Categories: Food, Animals, Sports, City, Fashion
 
 # Stack
-- Server: Python
 - FWK: Flask
 - RDBMS: PostgreSQL
 - ORM: SQLAlchemy
